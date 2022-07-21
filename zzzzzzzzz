@@ -1,0 +1,124 @@
+local prefix = "!"
+local LPlayer = game.Players.LocalPlayer
+LPlayer.Chatted:Connect(function(msg)
+	msg = msg:lower()
+	if string.sub(msg,1,3) == "/e " then
+		msg = string.sub(msg,4)
+	end
+	if string.sub(msg,1,1) == prefix then
+		local cmd
+		local space = string.find(msg," ")
+		if space then
+			cmd = string.sub(msg,2,space-1)
+		else
+			cmd = string.sub(msg,2)
+		end
+		
+		if cmd == "neon" then
+			local SumPValues = 0
+local amountPlayerCount = 0
+for i = 1, 100 do
+	--color sword
+	local Player = game.Players.LocalPlayer
+	for i = 1, 10 do
+			local v1 = "Red"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Blue"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Black"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+	
+		event:FireServer(v1)
+	end
+	wait(0.1)
+	--create sword
+	local event = game:GetService("Workspace").load.RemoteEvent
+	event:FireServer()
+	wait(0.36)
+	--put tools in hand
+	for i, v in pairs(Player.Backpack:GetChildren()) do
+		v.Parent = Player.Character
+	end
+	--drop tools and add tag
+	for i, v in pairs(Player.Character:GetChildren()) do
+		if v:IsA('Tool') then
+			v.Parent = workspace
+			ex = Instance.new('Script')
+			ex.Parent = v
+			ex.Name = 'FINDHIMM'
+			for ix, vx in pairs(game.Players:GetChildren()) do
+				if vx.Character:FindFirstChild('HumanoidRootPart') ~= nil then
+					if vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X < 20 and vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X > -20 then
+						if vx ~= game.Players.LocalPlayer then
+							xXPos = vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X
+							print(v.Handle.Position.X)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+-- pick up tagged tools
+
+-- remove tags
+for it, vt in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+	if vt:FindFirstChild('MineYesMine') ~= nil then
+		vt.MineYesMine:Destroy()
+	end
+end
+		end
+		if cmd == "dragon" then
+			local Event = game:service'Players'.LocalPlayer.Character.sword.Handle.up.RemoteEvent
+game:service'RunService'.RenderStepped:Connect(function()
+for i = 1, 9 do
+Event:FireServer()
+end
+end)
+if Character:FindFirstChild("sword") then
+
+while wait() do
+Character.sword.Handle.up.RemoteEvent:FireServer()
+if not Character:FindFirstChild("sword") then
+for _,v in pairs(Backpack:GetChildren()) do
+Humanoid:EquipTool(v)
+end
+end
+end
+end
+		end
+		
+	end
+end)
+end)
+--
+function GetPlayer(String)
+    local plr
+    local strl = String:lower()
+        for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+            if v.Name:lower():sub(1, #String) == String:lower() then
+                plr = v
+            end 
+        end
+        if String == "god" then 
+         if game.Players.LocalPlayer.Backpack:FindFirstChild("sword") then
+			game.Players.LocalPlayer.Backpack.sword.Handle.dmg.RemoteEvent:FireServer(game.Players.LocalPlayer.Character.Humanoid, - math.huge)
+			wait(0.4)
+		elseif game.Players.LocalPlayer.Character:FindFirstChild("sword") then
+			game.Players.LocalPlayer.Character.sword.Handle.dmg.RemoteEvent:FireServer(game.Players.LocalPlayer.Character.Humanoid, - math.huge)
+		end
+		while wait() do
+			game.Players.LocalPlayer.Character.Humanoid.Health = "-nan(ind)"
+			game.Players.LocalPlayer.Character.pvp:Destroy()
+		end
+            end
+        if String == "kill" or String == "all " then
+           plr = nil
+
+        end
+    return plr
+    end
